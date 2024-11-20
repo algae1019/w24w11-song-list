@@ -7,6 +7,8 @@ function App()
       <Header/>
       <Playlist/>
       <Container/>
+      <Container2/>
+      <Container3/>
     </div>
   )
 }
@@ -31,13 +33,36 @@ function Container()
 {
   return (
     <div className='container'>
-      <a href="https://www.youtube.com/results?search_query=넌+나의+전부">
+      <a href="https://www.youtube.com/results?search_query=넌+나의+전부+노래방">
       <img
         src="https://picsum.photos/600/150?random=1"
         alt="랜덤 이미지 1"/>
-      <div className='song-title'>
-        넌 나의 전부
-      </div>
+      <div className='song-title'>넌 나의 전부</div>
+      </a>
+    </div>
+  )
+}
+
+function Container2()
+{
+  return (
+    <div className="container">
+      <a href="https://www.youtube.com/results?search_query=사건의 지평선">
+        <img 
+          src="https://picsum.photos/600/150?random=2" 
+          alt="랜덤 이미지 2"/>
+        <div className="song-title">사건의 지평선</div>
+      </a>
+    </div>
+  )
+}
+
+function Container3() {
+  return (
+    <div className="container">
+      <a href="https://www.youtube.com/results?search_query=사랑은 늘 도망가">
+        <img src="https://picsum.photos/600/150?random=3" alt="랜덤 이미지 3"/>
+        <div className="song-title">사랑은 늘 도망가</div>
       </a>
     </div>
   )
