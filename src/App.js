@@ -1,6 +1,6 @@
 import './App.css'
 
-function App()
+const App = () =>
 {
   return (
     <div>
@@ -13,14 +13,14 @@ function App()
   )
 }
 
-function Header()
+const Header = () =>
 {
   return (
     <h1>React Programing</h1>
   )
 }
 
-function Playlist()
+const Playlist = () =>
 {
   return (
     <div className='playlist'>
@@ -29,7 +29,7 @@ function Playlist()
   )
 }
 
-function Container(props)
+const Container = (props) =>
 {
   return (
     <div className='container'>
