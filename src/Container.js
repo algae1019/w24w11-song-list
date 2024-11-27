@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {FaStar} from 'react-icons/fa'
 
 const Container = (props) =>
     {
@@ -21,6 +22,13 @@ const Container = (props) =>
           rel="noreferrer">
           <div className='song-title'>{`${props.song.title} (${props.song.singer})`}</div>
           </a>
+          {
+            <div className="song-rating">
+              {[...Array(props.song.rating)].map((_, index) => (
+                <FaStar key={index} />
+              ))}
+            </div>
+          }
         </div>
         {props.song.lyrics && lyricsExpanded && (
           <pre className='song-lyrics'
