@@ -1,32 +1,36 @@
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import './App.css'
 import Container from './Container.js'
 
+const SERVER_URL = 'http://localhost:8080/api/songs'
+
 const App = () =>
 {  
-    const songs = [
-      {
-        id: 1,
-        title: "사랑에 연습이 있었다면",
-        singer: "임재현",
-        rating: 5,
-        lyrics: `사랑에 연습이 있었다면
-우리는 달라졌을까`,
-      },
-      {
-        id: 2,
-        title: "사건의 지평선",
-        singer: "윤하",
-        rating: 3,
-        lyrics: null,
-      },
-      {
-        id: 3,
-        title: "사랑은 늘 도망가",
-        singer: "임영웅",
-        rating: 3,
-        lyrics: null,
-      },
-    ]
+  const [songs, setSongs] = useState([])
+
+  const getSong = async () =>
+  {
+    try
+    {
+      const res = await axios.get(SERVER_URL)
+      console.log(res)
+
+      setSongs(res.data)
+    }
+    catch(err)
+    {
+      console.log(err)
+
+      setSongs([])
+    }
+  }
+
+  useEffect(() =>
+    {
+      getSong()
+    },
+    [])
 
   return (
     <div>
@@ -44,13 +48,13 @@ const Header = () =>
   )
 }
 
-const Playlist = (props) =>
+const Playlist = ({title, listSong}) =>
 {
   return (
     <div className='playlist'>
-    <div className='playlist'>{props.title}</div>
+    <div className='playlist'>{title}</div>
     {
-      props.listSong.map(song => (
+      listSong.map(song => (
         <Container key={song.id} song={song}/>
       ))
     }
